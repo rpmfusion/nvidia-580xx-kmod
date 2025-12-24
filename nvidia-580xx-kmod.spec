@@ -9,14 +9,14 @@
 %global debug_package %{nil}
 %global _kmodtool_zipmodules 0
 
-Name:          nvidia-kmod
+Name:          nvidia-580xx-kmod
 Epoch:         3
 Version:       580.119.02
 # Taken over by kmodtool
-Release:       1%{?dist}
-Summary:       NVIDIA display driver kernel module
-License:       Redistributable, no modification permitted
+Release:       2%{?dist}
+Summary:       NVIDIA 580xx display driver kernel module
 URL:           https://www.nvidia.com/
+License:       Redistributable, no modification permitted
 
 Source11:      nvidia-kmodtool-excludekernel-filterfile
 Patch0:        make_modeset_default.patch
@@ -27,7 +27,7 @@ Source101:     nvidia-kmod-noopen-pciids.txt
 ExclusiveArch:  x86_64 aarch64
 
 # get the needed BuildRequires (in parts depending on what we build for)
-%global AkmodsBuildRequires %{_bindir}/kmodtool, xorg-x11-drv-nvidia-kmodsrc = %{epoch}:%{version}
+%global AkmodsBuildRequires %{_bindir}/kmodtool, xorg-x11-drv-nvidia-580xx-kmodsrc = %{epoch}:%{version}
 BuildRequires:  %{AkmodsBuildRequires}
 
 %{!?kernels:BuildRequires: gcc, elfutils-libelf-devel, buildsys-build-rpmfusion-kerneldevpkgs-%{?buildforkernels:%{buildforkernels}}%{!?buildforkernels:current}-%{_target_cpu} }
@@ -35,7 +35,7 @@ BuildRequires:  %{AkmodsBuildRequires}
 %{expand:%(kmodtool --target %{_target_cpu} --repo rpmfusion --kmodname %{name} --filterfile %{SOURCE11} --obsolete-name nvidia-newest --obsolete-version "%{?epoch}:%{version}-%{release}" %{?buildforkernels:--%{buildforkernels}} %{?kernels:--for-kernels "%{?kernels}"} 2>/dev/null) }
 
 %description
-The nvidia %{version} display driver kernel module for kernel %{kversion}.
+The nvidia 580xx %{version} display driver kernel module for kernel %{kversion}.
 
 %prep
 # error out if there was something wrong with kmodtool
@@ -97,6 +97,9 @@ done
 
 
 %changelog
+* Tue Dec 23 2025 Sérgio Basto <sergio@serjux.com> - 3:580.119.02-2
+- Initial commit for xorg-x11-drv-nvidia-580xx
+
 * Fri Dec 12 2025 Leigh Scott <leigh123linux@gmail.com> - 3:580.119.02-1
 - Update to 580.119.02 release
 

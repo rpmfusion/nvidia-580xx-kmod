@@ -13,7 +13,7 @@ Name:          nvidia-580xx-kmod
 Epoch:         3
 Version:       580.126.09
 # Taken over by kmodtool
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       NVIDIA 580xx display driver kernel module
 URL:           https://www.nvidia.com/
 License:       Redistributable, no modification permitted
@@ -97,6 +97,9 @@ done
 
 
 %changelog
+* Sat Feb 14 2026 Sérgio Basto <sergio@serjux.com> - 3:580.126.09-2
+- Provides and Obsoletes akmod-nvidia <= 580.x.x
+
 * Tue Feb 10 2026 Sérgio Basto <sergio@serjux.com> - 3:580.126.09-1
 - Update nvidia-580xx-kmod to 580.126.09
 

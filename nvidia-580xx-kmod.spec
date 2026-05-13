@@ -27,7 +27,7 @@ Source101:     nvidia-kmod-noopen-pciids.txt
 ExclusiveArch:  x86_64 aarch64
 
 # get the needed BuildRequires (in parts depending on what we build for)
-%global AkmodsBuildRequires %{_bindir}/kmodtool, xorg-x11-drv-nvidia-580xx-kmodsrc = %{epoch}:%{version}
+%global AkmodsBuildRequires %{_bindir}/kmodtool, %{_bindir}/lspci, xorg-x11-drv-nvidia-580xx-kmodsrc = %{epoch}:%{version}
 BuildRequires:  %{AkmodsBuildRequires}
 
 %{!?kernels:BuildRequires: gcc, elfutils-libelf-devel, buildsys-build-rpmfusion-kerneldevpkgs-%{?buildforkernels:%{buildforkernels}}%{!?buildforkernels:current}-%{_target_cpu} }

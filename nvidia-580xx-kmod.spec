@@ -8,7 +8,7 @@
 
 Name:          nvidia-580xx-kmod
 Epoch:         3
-Version:       580.178.04
+Version:       580.196.07
 # Taken over by kmodtool
 Release:       1%{?dist}
 Summary:       NVIDIA 580xx display driver kernel module
@@ -95,6 +95,9 @@ done
 
 
 %changelog
+* Thu Oct 22 2026 Sérgio Basto <sergio@serjux.com> - 3:580.196.07-1
+- Update nvidia-580xx-kmod to 580.196.07
+
 * Tue Aug 25 2026 Sérgio Basto <sergio@serjux.com> - 3:580.178.04-1
 - Update nvidia-580xx-kmod to 580.178.04
 
